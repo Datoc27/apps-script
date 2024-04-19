@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+</head>
+<body>
+  <h2>Leap Year Identifier</h2>
+  <p1> This app will help you to identify if the year you input is a leap year!</p1>
+
+  <label for="year">is this a leap year?</label><br>
+  <input type="text" pattern="[0-9]" id="year" required><br><br>
+  <input type="submit" value="find out" id="ok"><br><br>
+
+  <div id="message"></div>
+
+  <script>
+    document.getElementById("ok").addEventListener("click", function(event) {
+      event.preventDefault();
+
+      console.log(document.getElementById("year").value);
+      console.log(leapyear(parseInt(document.getElementById("year").value)));
+      document.getElementById("message").innerText = leapyear(parseInt(document.getElementById("year").value));
+    });
+
+    function leapyear(year) {
+      return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
+    }
+  </script>
+</body>
+</html>
